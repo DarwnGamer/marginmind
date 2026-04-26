@@ -1,6 +1,8 @@
-# External Review Notes
+# External Feedback Addendum
 
-These notes summarize selected feedback from an external AI review. They are not final conclusions; they are discussion material for future contributors.
+These notes summarize selected feedback from an external AI review of the current MVP. They are not final conclusions, and they are not the source of the original product idea. They are discussion material for future contributors.
+
+Important source boundary: attention nudges, explicit annotation, AI as a reading partner, and note generation based on the reading process came from the project initiator's original idea, hands-on use, and iteration feedback. When those directions appear below, it only means the external feedback overlaps with or challenges an existing direction.
 
 ## Key Reminders
 

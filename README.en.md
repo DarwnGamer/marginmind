@@ -151,7 +151,7 @@ Contributions and derivative work should treat the gaze-tracking dependency boun
 
 ## Roadmap
 
-See [docs/ROADMAP.en.md](docs/ROADMAP.en.md) and [docs/REVIEW_NOTES.en.md](docs/REVIEW_NOTES.en.md).
+See [docs/ROADMAP.en.md](docs/ROADMAP.en.md) and the [External Feedback Addendum](docs/REVIEW_NOTES.en.md).
 
 Key directions include gaze latency calibration, OCR for scanned PDFs, tray/floating-window modes, reader profiling, attention nudges, active annotation workflows, eye comfort, stronger privacy boundaries, and community plugins.
 

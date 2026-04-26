@@ -2,7 +2,7 @@
 
 This roadmap combines the original idea, MVP tradeoffs, and issues discovered during implementation.
 
-See also [External Review Notes](REVIEW_NOTES.en.md) for discussion prompts around gaze accuracy, weak signals, natural reading, and the AI role.
+See also [External Feedback Addendum](REVIEW_NOTES.en.md). It is an additional perspective, not the source of the original ideas around attention nudges, explicit annotation, or AI as a reading partner.
 
 ## Near-Term Priorities
 

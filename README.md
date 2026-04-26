@@ -151,7 +151,7 @@ GazeFollower 仓库：https://github.com/GanchengZhu/GazeFollower
 
 ## 后续展望
 
-见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md) 和 [docs/REVIEW_NOTES.zh.md](docs/REVIEW_NOTES.zh.md)。
+见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md) 和 [外部反馈补充摘录](docs/REVIEW_NOTES.zh.md)。
 
 重点方向包括：更精细的 gaze 延迟校准、扫描版 PDF OCR、托盘/悬浮窗形态、用户画像与笔记风格、走神提醒、主动标注工作流、眼部舒适度、安全边界、社区插件化。
 
