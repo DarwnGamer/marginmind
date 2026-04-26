@@ -18,7 +18,7 @@
 - After zooming or page changes, screen-space text boxes must be resubmitted.
 - Gaze samples near zoom/page changes are ignored to reduce latency errors.
 - Rapid continuous flipping does not count as reading.
-- Original text is context; explicit selections, annotations, and user requests are strong evidence, while gaze dwell is a weak signal that should be interpreted conservatively.
+- The program generates an evidence panel before appending the AI-assisted note body. Explicit selections, annotations, and user requests are explicit user actions; gaze dwell is only a review cue, not proof of understanding, attention, or neglect.
 
 ## Module Responsibilities
 

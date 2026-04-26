@@ -73,6 +73,9 @@ def main() -> None:
     assert payload["provider"] == "local"
     assert payload["analysis"]["sample_count"] == 4
     assert payload["analysis"]["pages"][0]["top_focus"]
+    assert "## 证据面板（程序生成）" in payload["notes"]
+    assert "## AI 辅助笔记" in payload["notes"]
+    assert "不直接证明理解、关注或忽略" in payload["notes"]
     print("smoke ok")
 
 

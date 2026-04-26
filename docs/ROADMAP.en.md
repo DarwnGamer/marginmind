@@ -26,10 +26,10 @@ See also [Project Idea And External Feedback](IDEA_AND_FEEDBACK.en.md), which se
 - Mind-wandering nudges: must be careful and optional, because pauses may be valuable thinking rather than distraction.
 - Reader profile: infer note preferences through onboarding, settings, and feedback rather than a heavy questionnaire.
 - Review interaction: users can mark notes as accurate, misread, or incomplete to improve later prompts and thresholds.
-- Active annotation workflow: selections, question clicks, highlights, and confusion markers should be strong signals; gaze should only provide auxiliary weighting.
+- Active annotation workflow: selections, question clicks, highlights, and confusion markers should be explicit user actions; gaze should only provide auxiliary review cues.
 - Non-traditional note formats: generate question cards, review lists, concept maps, counterargument lists, or other forms based on reading goals and user preferences.
 - Lower setup friction: reduce startup steps and waiting time so users feel they can start reading immediately.
-- Eye comfort: long-running gaze tracking needs rest prompts, sampling-duration awareness, and a camera-off mode.
+- Eye-comfort research: fatigue detection is not implemented and should not be rushed into medicalized judgment. Start with sampling-duration visibility, rest prompts, opt-out controls, and a camera-off mode, then decide from real testing.
 
 ## Reading Behavior Understanding
 
@@ -37,7 +37,7 @@ See also [Project Idea And External Feedback](IDEA_AND_FEEDBACK.en.md), which se
 - Mind-wandering versus thinking: long dwell may mean distraction or valuable reflection; nudges should be low-frequency, optional, and conservatively interpreted.
 - Gradual reader profiling: infer preferences from reading goals, note style, explicit annotations, and review feedback instead of a heavy questionnaire.
 - Mouse and keyboard participation: selection, clicking, annotation, shortcuts, and question buttons provide more reliable context than gaze alone.
-- Explainable evidence: before note generation, show strong signals, weak signals, and gaps so users know what the AI used.
+- Explainable evidence: before note generation, show explicit user actions, system observation cues, and gaps so users know what the AI used.
 
 ## Privacy And Safety
 

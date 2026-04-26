@@ -34,7 +34,7 @@ When generating notes, the app submits:
 - Text explicitly selected by the user.
 - The user's note request.
 
-Submitted content excludes camera frames and audio. Original text is context; the note prioritizes gaze focus and explicit selections.
+Submitted content excludes camera frames and audio. Original text is context; the final result starts with a program-generated evidence panel before the AI-assisted note body, so explicit selections, gaze observations, and source-text background are not presented as one undifferentiated certainty level.
 
 ## Camera Indicator Light
 
