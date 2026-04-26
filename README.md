@@ -28,7 +28,7 @@
 
 澜页目前处于早期 MVP 阶段，欢迎对视线追踪、文档解析、前后端工程、隐私安全、可用性设计和开源治理感兴趣的朋友共同建设。建议先从 issue、文档、测试、复现 bug 和小范围 PR 开始。
 
-贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，后续计划见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md)。
+贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，后续计划见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md)，项目方向与反馈摘要见 [docs/IDEA_AND_FEEDBACK.zh.md](docs/IDEA_AND_FEEDBACK.zh.md)。
 
 ## 当前功能
 
@@ -88,6 +88,23 @@ uvicorn app.main:app --host 127.0.0.1 --port 8000
 
 ```text
 http://127.0.0.1:8000
+```
+
+关闭后端：
+
+- 如果启动 `uvicorn` 的 PowerShell 窗口还在，按 `Ctrl+C`。
+- 如果窗口已经关掉但 `8000` 端口仍被占用，可在 PowerShell 里停止占用该端口的进程：
+
+```powershell
+Get-NetTCPConnection -LocalPort 8000 -State Listen |
+  Select-Object -ExpandProperty OwningProcess |
+  ForEach-Object { Stop-Process -Id $_ }
+```
+
+退出 conda 环境：
+
+```powershell
+conda deactivate
 ```
 
 ## AI Provider 配置
@@ -151,7 +168,7 @@ GazeFollower 仓库：https://github.com/GanchengZhu/GazeFollower
 
 ## 后续展望
 
-见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md) 和 [外部反馈补充摘录](docs/REVIEW_NOTES.zh.md)。
+见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md) 和 [项目想法与外部反馈](docs/IDEA_AND_FEEDBACK.zh.md)。
 
 重点方向包括：更精细的 gaze 延迟校准、扫描版 PDF OCR、托盘/悬浮窗形态、用户画像与笔记风格、走神提醒、主动标注工作流、眼部舒适度、安全边界、社区插件化。
 

@@ -28,7 +28,7 @@ The product is designed to keep readers active: AI provides suggestions, identif
 
 MarginMind is an early MVP. Contributors interested in gaze tracking, document parsing, frontend/backend engineering, privacy and security, usability design, documentation, and open-source governance are welcome. Issues, docs, tests, reproducible bug reports, and small PRs are good starting points.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.en.md](docs/ROADMAP.en.md) for planned work.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes, [docs/ROADMAP.en.md](docs/ROADMAP.en.md) for planned work, and [docs/IDEA_AND_FEEDBACK.en.md](docs/IDEA_AND_FEEDBACK.en.md) for the project direction and feedback summary.
 
 ## Current Features
 
@@ -88,6 +88,23 @@ Open:
 
 ```text
 http://127.0.0.1:8000
+```
+
+Stop the backend:
+
+- If the PowerShell window running `uvicorn` is still open, press `Ctrl+C`.
+- If the window was closed but port `8000` is still occupied, stop the process that owns that port:
+
+```powershell
+Get-NetTCPConnection -LocalPort 8000 -State Listen |
+  Select-Object -ExpandProperty OwningProcess |
+  ForEach-Object { Stop-Process -Id $_ }
+```
+
+Leave the conda environment:
+
+```powershell
+conda deactivate
 ```
 
 ## AI Provider Configuration
@@ -151,7 +168,7 @@ Contributions and derivative work should treat the gaze-tracking dependency boun
 
 ## Roadmap
 
-See [docs/ROADMAP.en.md](docs/ROADMAP.en.md) and the [External Feedback Addendum](docs/REVIEW_NOTES.en.md).
+See [docs/ROADMAP.en.md](docs/ROADMAP.en.md) and [Project Idea And External Feedback](docs/IDEA_AND_FEEDBACK.en.md).
 
 Key directions include gaze latency calibration, OCR for scanned PDFs, tray/floating-window modes, reader profiling, attention nudges, active annotation workflows, eye comfort, stronger privacy boundaries, and community plugins.
 

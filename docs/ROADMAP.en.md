@@ -2,7 +2,7 @@
 
 This roadmap combines the original idea, MVP tradeoffs, and issues discovered during implementation.
 
-See also [External Feedback Addendum](REVIEW_NOTES.en.md). It is an additional perspective, not the source of the original ideas around attention nudges, explicit annotation, or AI as a reading partner.
+See also [Project Idea And External Feedback](IDEA_AND_FEEDBACK.en.md), which separates the project initiator's original direction from external feedback addenda.
 
 ## Near-Term Priorities
 
