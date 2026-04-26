@@ -10,7 +10,7 @@ MarginMind is an early MVP for gaze-aware reading notes. Careful review, focused
 
 - Use sample configuration, synthetic documents, and sanitized logs in public contributions.
 - Treat camera access, gaze samples, uploaded documents, prompts, and local storage as privacy-sensitive surfaces.
-- Describe the current gaze dependency as non-commercial unless a future license review changes that boundary.
+- Treat the current gaze-tracking dependency boundary as non-commercial.
 
 ## Useful Commands
 

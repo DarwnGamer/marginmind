@@ -39,4 +39,4 @@ This roadmap combines the original idea, MVP tradeoffs, and issues discovered du
 - Pluggable modules: gaze tracking, OCR, AI providers, note templates.
 - Contribution guide and issue templates.
 - Cross-platform testing: Windows, macOS, Linux.
-- License review: GazeFollower is suitable for the current non-commercial stage; broader future use requires reevaluation.
+- License boundary: GazeFollower is used for non-commercial research, learning, and open collaboration.

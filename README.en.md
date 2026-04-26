@@ -12,7 +12,7 @@ MarginMind is an open-source, local-first AI reading-notes MVP for study-oriente
 
 Keywords: AI notes, reading notes, study notes, gaze tracking, eye tracking, PDF reader, document notes, learning assistant.
 
-> This project is currently a non-commercial prototype. Data is stored locally by default; audio and camera frames are outside the upload flow. Public contributions use sample configuration and sanitized material.
+> This project is a non-commercial open-source prototype. Data is stored locally by default; audio and camera frames are outside the upload flow. Public contributions use sample configuration and sanitized material.
 
 ## Why This Name
 
@@ -142,11 +142,11 @@ python scripts\pre_publish_check.py
 
 ## Open Source And Dependency Notes
 
-The MVP integrates `GazeFollower`, which is marked as `CC BY-NC-SA 4.0` in its GitHub repository. This matches the current non-commercial, community prototype stage.
+The MVP integrates `GazeFollower`, which is marked as `CC BY-NC-SA 4.0` in its GitHub repository. MarginMind is maintained as a non-commercial, community-oriented research and learning tool.
 
 GazeFollower repository: https://github.com/GanchengZhu/GazeFollower
 
-If the project later needs commercial distribution, app-store packaging, or a broader license, the gaze-tracking dependency and license boundary must be revisited.
+Contributions and derivative work should treat the gaze-tracking dependency boundary as non-commercial.
 
 ## Roadmap
 

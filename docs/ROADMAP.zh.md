@@ -39,4 +39,4 @@
 - 拆分可插拔模块：视线追踪、OCR、AI provider、笔记模板。
 - 增加贡献指南和 issue 模板。
 - 补充跨平台测试：Windows、macOS、Linux。
-- 许可证评估：当前 GazeFollower 依赖适合非商业阶段；若未来需要更宽松使用范围，需要重新评估。
+- 许可证边界：当前 GazeFollower 依赖按非商业研究、学习和开源共建方向使用。
