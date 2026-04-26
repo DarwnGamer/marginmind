@@ -16,7 +16,6 @@ LOCAL_ONLY = [
     "storage",
     "server.err.log",
     "server.out.log",
-    "想法.txt",
 ]
 
 

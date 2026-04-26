@@ -49,6 +49,6 @@ Before publishing to GitHub, verify that:
 - `server*.log` is not committed.
 - Real API keys are not present in README files, issues, commits, or screenshots.
 - Private reading documents are not committed.
-- Raw personal brainstorming notes are not committed; public docs should use sanitized descriptions.
+- Local drafts are not committed; public docs should use sanitized descriptions.
 
 If an API key was ever exposed publicly, revoke it immediately and create a new one.

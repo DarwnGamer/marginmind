@@ -6,7 +6,7 @@
 - 不提交 `storage/`。
 - 不提交 `server*.log`。
 - 不提交个人阅读文档。
-- 不提交原始个人想法草稿 `想法.txt`。
+- 不提交本地草稿、个人笔记或未整理的想法文档。
 - 不提交真实 DeepSeek/OpenAI API key。
 - 不在截图、README、issue、commit message 中展示 key。
 
@@ -45,6 +45,6 @@
 - `storage/`
 - `server.err.log`
 - `server.out.log`
-- `想法.txt`
+- 本地草稿、个人笔记或未整理的想法文档
 - 任何上传过的个人文档
 - 任何 API 返回或调试日志中包含个人文本的文件

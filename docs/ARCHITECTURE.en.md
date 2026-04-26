@@ -9,7 +9,7 @@
 5. The GazeFollower worker samples gaze coordinates and timestamps.
 6. The backend combines page-view timeline, layout changes, gaze samples, and text boxes into an attention summary.
 7. During note generation, only pages that were actually read are selected.
-8. The backend builds an internal AI context and calls DeepSeek/OpenAI or the local fallback.
+8. The backend builds an internal AI context and calls the configured AI provider or the local fallback.
 9. The frontend displays only the final user-facing notes.
 
 ## Key Constraints

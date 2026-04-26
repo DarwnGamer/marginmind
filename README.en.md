@@ -1,5 +1,7 @@
 # MarginMind / 澜页
 
+> Statement: the following content was generated with Codex.
+
 [中文](README.md)
 
 <p align="center">
@@ -18,13 +20,11 @@ The Chinese name “澜页” suggests attention rippling across a page. It is n
 
 The original idea was a note-taking tool for learning: while reading, the webcam tracks gaze so the AI can understand where attention went and generate notes that reflect the actual reading process.
 
-The product should not make users passive. AI should provide suggestions, identify blind spots, and support reflection instead of merely praising or summarizing everything.
+The product should not make users passive. AI should provide suggestions, identify blind spots, and support reflection instead of replacing the user's thinking.
 
-## Origin And Collaboration
+## Community
 
-This project started from a real reading-and-learning problem. The project initiator provided the product idea, early MVP direction, and repeated user feedback; the current code prototype was mainly AI-assisted and iterated through hands-on testing. It runs as an MVP, but it should not be treated as mature, fully audited, or production-ready software.
-
-The initiator is primarily responsible for problem insight, product direction, and user-experience feedback. The project is looking for contributors interested in gaze tracking, document parsing, frontend/backend engineering, privacy and security, usability design, documentation, and open-source governance. Issues, docs, tests, reproducible bug reports, and small PRs are all welcome.
+MarginMind is an early MVP. Contributors interested in gaze tracking, document parsing, frontend/backend engineering, privacy and security, usability design, documentation, and open-source governance are welcome. Issues, docs, tests, reproducible bug reports, and small PRs are good starting points.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.en.md](docs/ROADMAP.en.md) for planned work.
 
@@ -37,23 +37,23 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.
 - PDF whitespace is cropped to enlarge the readable content; after zooming, the frontend resubmits real screen-space text boxes.
 - Local gaze tracking via `GazeFollower`.
 - When notes are generated, gaze tracking is stopped and the camera is released.
-- Page changes and zoom changes are treated as layout changes; gaze samples around those moments are ignored for about `0.8s`.
-- Rapid continuous flipping does not count as reading. A page must be stable for about `3s`, have about `1s` of valid gaze, or contain an explicit selection to enter the AI submission scope.
+- Page changes and zoom changes are treated as layout changes; nearby transient gaze samples are filtered to reduce latency errors.
+- Rapid continuous flipping does not count as reading. A page must remain stable, accumulate valid gaze, or contain an explicit selection to enter the AI submission scope.
 - Only pages actually read in the session are submitted to AI.
 - AI input separates original text context from gaze evidence. Final notes must prioritize gaze focus and explicit selections.
-- DeepSeek is preferred by default; OpenAI or local rules are fallbacks.
+- AI providers can be configured through environment variables; local rules are used when no API key is configured.
 
 ## Project Structure
 
 ```text
-D:\note
+marginmind/
 ├─ app/                    # FastAPI backend, parsing, gaze analysis, note generation
 │  ├─ main.py              # API entry point and session workflow
 │  ├─ gaze_worker.py       # Local GazeFollower sampling process
 │  ├─ attention.py         # Gaze-to-text-box analysis
 │  ├─ document_parser.py   # PDF/DOCX/TXT/MD text extraction
 │  ├─ document_renderer.py # PDF rendering, whitespace cropping, text box extraction
-│  ├─ note_generator.py    # DeepSeek/OpenAI/local note generation
+│  ├─ note_generator.py    # AI provider/local note generation
 │  └─ storage.py           # Local storage helpers
 ├─ static/                 # Frontend upload page, paged reader, result page, icon
 ├─ tests/                  # Smoke and read-scope tests
@@ -95,7 +95,7 @@ Copy `.env.example` to `.env` and fill in your own key:
 Copy-Item .env.example .env
 ```
 
-DeepSeek:
+Example:
 
 ```text
 DEEPSEEK_API_KEY=your_key_here
@@ -128,7 +128,7 @@ OPENAI_MODEL=
 - No camera frame upload.
 - Gaze samples, uploaded documents, AI prompts, and internal context are stored locally in `storage/`.
 - Hardware camera indicator lights usually cannot be disabled independently by generic app code; stopping gaze tracking releases the camera.
-- Before publishing, make sure `.env`, `storage/`, logs, private documents, and raw personal drafts are not included.
+- Before publishing, make sure `.env`, `storage/`, logs, private documents, and local drafts are not included.
 
 See [docs/PRIVACY.en.md](docs/PRIVACY.en.md).
 

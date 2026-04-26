@@ -6,7 +6,7 @@
 - Do not commit `storage/`.
 - Do not commit `server*.log`.
 - Do not commit private reading documents.
-- Do not commit the raw personal draft `想法.txt`.
+- Do not commit local drafts, personal notes, or unpolished idea documents.
 - Do not commit real DeepSeek/OpenAI API keys.
 - Do not expose keys in screenshots, README files, issues, or commit messages.
 
@@ -45,6 +45,6 @@
 - `storage/`
 - `server.err.log`
 - `server.out.log`
-- `想法.txt`
+- Local drafts, personal notes, or unpolished idea documents
 - Any private uploaded documents
 - Any API responses or debug logs containing private text

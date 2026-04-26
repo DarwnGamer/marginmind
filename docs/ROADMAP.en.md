@@ -8,7 +8,7 @@ This roadmap combines the original idea, MVP tradeoffs, and issues discovered du
 - More transparent evidence display: show which pages were submitted, which snippets were considered focus, and how strong the evidence is.
 - Better GazeFollower startup UX: model warmup, clearer progress, and handling calibration-window focus failures.
 - Reading heatmap preview: let users inspect gaze focus regions before generating notes.
-- Error recovery: clearer actions for camera conflicts, calibration failures, and DeepSeek API errors.
+- Error recovery: clearer actions for camera conflicts, calibration failures, and AI-provider errors.
 
 ## Document And Reading Support
 
@@ -34,7 +34,7 @@ This roadmap combines the original idea, MVP tradeoffs, and issues discovered du
 
 ## Open Collaboration
 
-- Code review and engineering cleanup: the current codebase is an AI-assisted MVP, so experienced contributors are welcome to review architecture, boundaries, and tests.
+- Code review and engineering cleanup: experienced contributors are welcome to review architecture, boundaries, and tests.
 - Low-barrier tasks: split reproducible bugs, documentation edits, threshold tuning, UI copy, and test fixtures into beginner-friendly issues.
 - Pluggable modules: gaze tracking, OCR, AI providers, note templates.
 - Contribution guide and issue templates.
