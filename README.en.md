@@ -8,11 +8,13 @@
   <img src="static/marginmind-icon.svg" width="96" height="96" alt="MarginMind icon">
 </p>
 
-MarginMind is an open-source, local-first AI reading-notes MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate which page regions were actually attended to. Notes are generated from the read pages, gaze evidence, explicit text selections, and the user's note request.
+MarginMind is an open-source, local-first AI reading-notes MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate page regions with longer dwell. Notes are generated from read-page text, reading-behavior cues, explicit text selections, and the user's note request.
 
 Keywords: AI notes, reading notes, study notes, gaze tracking, eye tracking, PDF reader, document notes, learning assistant.
 
 > This project is a non-commercial open-source prototype. Data is stored locally by default; audio and camera frames are outside the upload flow. Public contributions use sample configuration and sanitized material.
+
+> The camera path is a product hypothesis to validate: its value is low-interruption reading-behavior capture for future reader profiling, not a claim that a commodity webcam can directly understand user intent. Camera-off/manual modes remain important baselines and fallbacks.
 
 ## Why This Name
 
@@ -20,7 +22,7 @@ The Chinese name “澜页” suggests attention rippling across a page. It is n
 
 ## Motivation
 
-The original idea was a note-taking tool for learning: while reading, the webcam tracks gaze so the AI can understand where attention went and generate notes that reflect the actual reading process.
+The original idea was a note-taking tool for learning: while reading, webcam-based gaze tracking creates reviewable reading-behavior cues, then generates notes or review suggestions that better reflect the reading process.
 
 The product is designed to keep readers active: AI provides suggestions, identifies blind spots, and supports reflection while leaving room for the user's own thinking. Gaze traces are best treated as review cues; explicit selections, annotations, questions, and feedback are more reliable user actions.
 
@@ -45,6 +47,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes, [docs/ROADMAP.en.
 - Only pages actually read in the session are submitted to AI.
 - Results begin with a program-generated evidence panel, followed by an AI-assisted note body. Gaze dwell only informs review suggestions and self-test questions; it is not treated as proof of understanding or neglect.
 - AI providers can be configured through environment variables; local rules are used when API credentials are absent.
+
+## Not Implemented Yet Or Still Under Research
+
+- Reader profiling: the MVP stores reading purpose and note preference, but does not learn a long-term profile yet.
+- Mind-wandering nudges: not implemented. Future nudges must be low-frequency, optional, and careful about valuable reflection.
+- Eye comfort: fatigue detection is not implemented and no medical judgment is made; safer work starts with sampling duration, rest prompts, and opt-out controls.
+- Evidence preview/heatmap: the current result has a post-generation evidence panel; pre-generation confirmation and heatmap visualization are not implemented yet.
+- Camera-off mode: the app can produce output without gaze using source text, dwell, and selections, but this is not a complete manual-only mode yet.
+- OCR, formulas, tables, and image-region recognition: current support is best for text-based PDFs and common text files.
+- Tray/floating-window/browser-extension forms, local models, and session-management UI are future directions.
 
 ## Project Structure
 
