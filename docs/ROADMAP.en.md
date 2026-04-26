@@ -2,6 +2,8 @@
 
 This roadmap combines the original idea, MVP tradeoffs, and issues discovered during implementation.
 
+See also [External Review Notes](REVIEW_NOTES.en.md) for discussion prompts around gaze accuracy, weak signals, natural reading, and the AI role.
+
 ## Near-Term Priorities
 
 - Better gaze latency calibration: different machines, webcams, and GazeFollower filters introduce different delays.

@@ -35,6 +35,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.
 - Upload `.pdf`, `.docx`, `.txt`, and `.md` files.
 - Fast upload path: save file and metadata first; defer heavier parsing.
 - Fixed paged reader with scroll-free pages, keeping gaze coordinates aligned with page positions.
+- Page turning works with buttons, arrow keys, PageUp/PageDown, space, and the mouse wheel; wheel turns are throttled to avoid layout noise during rapid scrolling.
 - PDF pages are rendered from the original PDF; text boxes are extracted from the same page for gaze matching.
 - PDF whitespace is cropped to enlarge the readable content; after zooming, the frontend resubmits real screen-space text boxes.
 - Local gaze tracking via `GazeFollower`.
@@ -119,7 +120,7 @@ The copied `.env` file is loaded by the local service and remains a local config
 1. Upload a document.
 2. Describe what kind of notes you need.
 3. Start gaze tracking and finish GazeFollower calibration.
-4. Return to the browser and read in the fixed paged reader.
+4. Return to the browser and read in the fixed paged reader. Use buttons, arrow keys, PageUp/PageDown, space, or the mouse wheel to turn pages.
 5. Optionally select text as explicit attention markers.
 6. Generate notes. The app stops gaze tracking before note generation.
 7. The result page shows the pages submitted to AI, so the output can be checked against the actual read scope.
@@ -150,7 +151,7 @@ Contributions and derivative work should treat the gaze-tracking dependency boun
 
 ## Roadmap
 
-See [docs/ROADMAP.en.md](docs/ROADMAP.en.md).
+See [docs/ROADMAP.en.md](docs/ROADMAP.en.md) and [docs/REVIEW_NOTES.en.md](docs/REVIEW_NOTES.en.md).
 
 Key directions include gaze latency calibration, OCR for scanned PDFs, tray/floating-window modes, reader profiling, attention nudges, active annotation workflows, eye comfort, stronger privacy boundaries, and community plugins.
 

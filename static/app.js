@@ -7,7 +7,17 @@ const state = {
   lastSelection: "",
   zoom: 1,
   gazeRunning: false,
+  pageChangeInFlight: false,
+  pendingPageDelta: 0,
+  pendingPageSource: "button",
+  wheelDelta: 0,
+  wheelTimer: null,
+  pendingWheelDelta: 0,
+  lastWheelPageAt: 0,
 };
+
+const WHEEL_PAGE_THRESHOLD = 72;
+const WHEEL_PAGE_COOLDOWN_MS = 360;
 
 const setupView = document.querySelector("#setupView");
 const readerView = document.querySelector("#readerView");
@@ -52,8 +62,8 @@ uploadForm.addEventListener("submit", async (event) => {
   await renderPage();
 });
 
-document.querySelector("#prevPage").addEventListener("click", () => changePage(-1));
-document.querySelector("#nextPage").addEventListener("click", () => changePage(1));
+document.querySelector("#prevPage").addEventListener("click", () => changePage(-1, "button"));
+document.querySelector("#nextPage").addEventListener("click", () => changePage(1, "button"));
 document.querySelector("#zoomOutBtn").addEventListener("click", () => changeZoom(-0.08));
 document.querySelector("#zoomInBtn").addEventListener("click", () => changeZoom(0.08));
 document.querySelector("#zoomResetBtn").addEventListener("click", () => setZoom(1));
@@ -86,18 +96,14 @@ document.addEventListener("keydown", (event) => {
   if (readerView.classList.contains("hidden")) return;
   if (event.key === "ArrowLeft" || event.key === "PageUp") {
     event.preventDefault();
-    changePage(-1);
+    changePage(-1, "keyboard");
   }
   if (event.key === "ArrowRight" || event.key === "PageDown" || event.key === " ") {
     event.preventDefault();
-    changePage(1);
+    changePage(1, "keyboard");
   }
 });
-document.addEventListener("wheel", (event) => {
-  if (!readerView.classList.contains("hidden")) {
-    event.preventDefault();
-  }
-}, { passive: false });
+document.addEventListener("wheel", handleReaderWheel, { passive: false });
 
 async function startGaze() {
   if (!state.session) return;
@@ -142,21 +148,86 @@ function startGazePolling() {
   }, 750);
 }
 
-async function changePage(delta) {
+async function changePage(delta, source = "button") {
   if (!state.document) return;
-  const next = Math.min(Math.max(state.pageNumber + delta, 1), state.document.page_count || 1);
-  if (next === state.pageNumber) return;
-  await sendEvents([
-    {
-      type: "layout_change",
-      reason: "page_change",
-      from_page: state.pageNumber,
-      to_page: next,
-      ts: now(),
-    },
-  ]);
-  state.pageNumber = next;
-  await renderPage();
+  if (state.pageChangeInFlight) {
+    state.pendingPageDelta = delta;
+    state.pendingPageSource = source;
+    return;
+  }
+
+  state.pageChangeInFlight = true;
+  try {
+    const next = Math.min(Math.max(state.pageNumber + delta, 1), state.document.page_count || 1);
+    if (next === state.pageNumber) return;
+    await sendEvents([
+      {
+        type: "layout_change",
+        reason: "page_change",
+        source,
+        from_page: state.pageNumber,
+        to_page: next,
+        ts: now(),
+      },
+    ]);
+    state.pageNumber = next;
+    await renderPage();
+  } finally {
+    state.pageChangeInFlight = false;
+    const pendingDelta = state.pendingPageDelta;
+    const pendingSource = state.pendingPageSource;
+    state.pendingPageDelta = 0;
+    state.pendingPageSource = "button";
+    if (pendingDelta) {
+      window.setTimeout(() => changePage(pendingDelta, pendingSource), 90);
+    }
+  }
+}
+
+function handleReaderWheel(event) {
+  if (readerView.classList.contains("hidden")) return;
+  event.preventDefault();
+  if (!state.document || event.ctrlKey || event.metaKey) return;
+
+  const primaryDelta = Math.abs(event.deltaY) >= Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
+  if (!primaryDelta) return;
+
+  state.wheelDelta += normalizeWheelDelta(primaryDelta, event.deltaMode);
+  if (Math.abs(state.wheelDelta) < WHEEL_PAGE_THRESHOLD) return;
+
+  const delta = state.wheelDelta > 0 ? 1 : -1;
+  state.wheelDelta = 0;
+  queueWheelPage(delta);
+}
+
+function normalizeWheelDelta(delta, deltaMode) {
+  if (deltaMode === 1) return delta * 24;
+  if (deltaMode === 2) return delta * Math.max(pageSurface.clientHeight, 1);
+  return delta;
+}
+
+function queueWheelPage(delta) {
+  state.pendingWheelDelta = delta;
+  const wait = Math.max(WHEEL_PAGE_COOLDOWN_MS - (Date.now() - state.lastWheelPageAt), 0);
+  clearTimeout(state.wheelTimer);
+  if (wait === 0 && !state.pageChangeInFlight) {
+    flushWheelPage();
+    return;
+  }
+  state.wheelTimer = window.setTimeout(flushWheelPage, Math.max(wait, 80));
+}
+
+function flushWheelPage() {
+  const delta = state.pendingWheelDelta;
+  state.pendingWheelDelta = 0;
+  if (!delta) return;
+  if (state.pageChangeInFlight) {
+    state.pendingWheelDelta = delta;
+    state.wheelTimer = window.setTimeout(flushWheelPage, 120);
+    return;
+  }
+  state.lastWheelPageAt = Date.now();
+  changePage(delta, "wheel");
 }
 
 async function renderPage() {
