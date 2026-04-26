@@ -110,7 +110,7 @@ OPENAI_API_KEY=your_key_here
 OPENAI_MODEL=
 ```
 
-`.env` is ignored by git. Never put real keys in README files, issues, screenshots, or commits.
+`.env` is ignored by default; keep real keys local.
 
 ## Usage
 

@@ -110,7 +110,7 @@ OPENAI_API_KEY=your_key_here
 OPENAI_MODEL=
 ```
 
-`.env` 已被 `.gitignore` 排除。不要把真实 key 写进 README、issue、截图或 commit。
+`.env` 已在默认配置中被忽略；真实密钥只应保存在本地。
 
 ## 使用流程
 
