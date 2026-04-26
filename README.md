@@ -5,7 +5,7 @@
 [English](README.en.md)
 
 <p align="center">
-  <img src="static/icon.svg" width="96" height="96" alt="澜页 / MarginMind 图标">
+  <img src="static/marginmind-icon.svg" width="96" height="96" alt="澜页 / MarginMind 图标">
 </p>
 
 澜页是一个开源、本地优先的 AI 阅读笔记 MVP：用户上传文档后进行固定翻页式阅读，系统用摄像头视线追踪记录用户在每页真正关注的位置，再把“已阅读页原文上下文 + 视线证据 + 用户笔记需求”交给 AI 生成阅读笔记。

@@ -5,7 +5,7 @@
 [中文](README.md)
 
 <p align="center">
-  <img src="static/icon.svg" width="96" height="96" alt="MarginMind icon">
+  <img src="static/marginmind-icon.svg" width="96" height="96" alt="MarginMind icon">
 </p>
 
 MarginMind is an open-source, local-first AI reading-notes MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate which page regions were actually attended to. Notes are generated from the read pages, gaze evidence, explicit text selections, and the user's note request.
