@@ -1,6 +1,6 @@
 # MarginMind / 澜页: Gaze-Aware AI Reading Notes
 
-> Statement: the following content was generated with Codex.
+> Statement: the project initiator provided the product idea, requirements direction, and testing feedback; the current MVP implementation, debugging, and the following documentation were mainly completed with Codex.
 
 [中文](README.md)
 
