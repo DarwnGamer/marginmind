@@ -18,7 +18,7 @@
 - After zooming or page changes, screen-space text boxes must be resubmitted.
 - Gaze samples near zoom/page changes are ignored to reduce latency errors.
 - Rapid continuous flipping does not count as reading.
-- Original text is context; gaze focus and explicit selections are the primary note evidence.
+- Original text is context; explicit selections, annotations, and user requests are strong evidence, while gaze dwell is a weak signal that should be interpreted conservatively.
 
 ## Module Responsibilities
 

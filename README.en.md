@@ -22,7 +22,7 @@ The Chinese name “澜页” suggests attention rippling across a page. It is n
 
 The original idea was a note-taking tool for learning: while reading, the webcam tracks gaze so the AI can understand where attention went and generate notes that reflect the actual reading process.
 
-The product is designed to keep readers active: AI provides suggestions, identifies blind spots, and supports reflection while leaving room for the user's own thinking.
+The product is designed to keep readers active: AI provides suggestions, identifies blind spots, and supports reflection while leaving room for the user's own thinking. Gaze traces are best treated as weak signals; explicit selections, annotations, questions, and feedback are stronger evidence.
 
 ## Community
 
@@ -42,7 +42,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.
 - Page changes and zoom changes are treated as layout changes; nearby transient gaze samples are filtered to reduce latency errors.
 - Rapid continuous flipping remains a preview interaction; a page enters the AI submission scope after stable dwell time, valid gaze, or an explicit selection.
 - Only pages actually read in the session are submitted to AI.
-- AI input separates original text context from gaze evidence. Final notes must prioritize gaze focus and explicit selections.
+- AI input separates original text context, explicit annotations, and gaze signals. Explicit annotations are strong evidence; gaze dwell is interpreted conservatively.
 - AI providers can be configured through environment variables; local rules are used when API credentials are absent.
 
 ## Project Structure
@@ -152,7 +152,7 @@ Contributions and derivative work should treat the gaze-tracking dependency boun
 
 See [docs/ROADMAP.en.md](docs/ROADMAP.en.md).
 
-Key directions include gaze latency calibration, OCR for scanned PDFs, tray/floating-window modes, reader profiling, attention nudges, stronger privacy boundaries, and community plugins.
+Key directions include gaze latency calibration, OCR for scanned PDFs, tray/floating-window modes, reader profiling, attention nudges, active annotation workflows, eye comfort, stronger privacy boundaries, and community plugins.
 
 ## Tests
 

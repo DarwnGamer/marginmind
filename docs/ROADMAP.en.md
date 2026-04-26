@@ -24,6 +24,18 @@ This roadmap combines the original idea, MVP tradeoffs, and issues discovered du
 - Mind-wandering nudges: must be careful and optional, because pauses may be valuable thinking rather than distraction.
 - Reader profile: infer note preferences through onboarding, settings, and feedback rather than a heavy questionnaire.
 - Review interaction: users can mark notes as accurate, misread, or incomplete to improve later prompts and thresholds.
+- Active annotation workflow: selections, question clicks, highlights, and confusion markers should be strong signals; gaze should only provide auxiliary weighting.
+- Non-traditional note formats: generate question cards, review lists, concept maps, counterargument lists, or other forms based on reading goals and user preferences.
+- Lower setup friction: reduce startup steps and waiting time so users feel they can start reading immediately.
+- Eye comfort: long-running gaze tracking needs rest prompts, sampling-duration awareness, and a camera-off mode.
+
+## Reading Behavior Understanding
+
+- Anti-dependency design: AI should help readers notice blind spots, ask questions, and restate ideas instead of waiting passively for answers.
+- Mind-wandering versus thinking: long dwell may mean distraction or valuable reflection; nudges should be low-frequency, optional, and conservatively interpreted.
+- Gradual reader profiling: infer preferences from reading goals, note style, explicit annotations, and review feedback instead of a heavy questionnaire.
+- Mouse and keyboard participation: selection, clicking, annotation, shortcuts, and question buttons provide more reliable context than gaze alone.
+- Explainable evidence: before note generation, show strong signals, weak signals, and gaps so users know what the AI used.
 
 ## Privacy And Safety
 

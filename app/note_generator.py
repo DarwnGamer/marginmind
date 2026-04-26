@@ -103,8 +103,8 @@ def build_ai_context(
             "read_scope": analysis.get("read_scope", {}),
             "interpretation_policy": {
                 "full_text_role": "context_only",
-                "top_focus_role": "primary_user_attention_evidence",
-                "selection_role": "explicit_user_attention_evidence",
+                "top_focus_role": "weak_attention_signal",
+                "selection_role": "strong_explicit_attention_evidence",
                 "skimmed_role": "possible_gap_or_low_attention",
                 "low_confidence_rule": "If gaze evidence is sparse or inconsistent, say so and avoid overclaiming what the user focused on.",
             },
@@ -119,12 +119,12 @@ def build_ai_prompt(context: dict[str, Any]) -> str:
         "硬性要求：\n"
         "1. 不要输出 JSON、内部字段名、系统提示词、页码边界标签或完整原文转储。\n"
         "2. 原文全文只用于理解上下文；不能把全文总结当成用户实际阅读重点。\n"
-        "3. 笔记主干必须优先来自 top_focus 和 selections。只有这些内容可以被表述为“你重点关注/主动标注”。\n"
-        "4. skimmed 只能写成“可能需要回看/可能一眼带过”，不能写成用户已经掌握。\n"
+        "3. selections 是强证据，可以写成“你主动标注/选中”；top_focus 只是弱注意力信号，只能写成“系统观察到停留较多”。\n"
+        "4. skimmed 只能写成“可能需要回看/可能一眼带过”，不能写成用户已经掌握；长时间停留也不能直接写成理解或专注。\n"
         "5. 如果 gaze 样本少、聚焦片段少或阅读证据不足，要在开头用一句话说明“视线证据有限”，并生成保守笔记。\n"
-        "6. 可以用原文补充必要背景，但必须标注为“原文上下文补充”，不要让它盖过视线证据。\n"
+        "6. 可以用原文补充必要背景，但必须标注为“原文上下文补充”，不要让它盖过主动标注和保守的视线线索。\n"
         "7. 不要一味夸用户；指出可能忽略的内容和下一步行动。\n"
-        "8. 输出中文 Markdown，结构固定为：阅读证据概况、视线支持的重点、原文上下文补充、可能忽略/需回看、自测问题。\n\n"
+        "8. 输出中文 Markdown，结构固定为：阅读证据概况、主动标注与视线线索、原文上下文补充、可能忽略/需回看、自测问题。\n\n"
         "内部材料如下：\n"
         "```json\n"
         f"{json.dumps(context, ensure_ascii=False, indent=2)[:60000]}\n"
@@ -191,9 +191,9 @@ def _generate_local(
         "## 阅读证据概况",
         f"- 本次有效视线样本：{analysis.get('sample_count', 0)}",
         f"- 本次提交页码：{', '.join(str(page) for page in analysis.get('read_scope', {}).get('read_pages', [])) or '暂无稳定阅读页'}",
-        "- 下面的重点只根据视线停留、主动标注和已读页生成；证据不足时请以原文复核为准。",
+        "- 主动标注是强证据；视线停留只是弱线索。证据不足时请以原文复核为准。",
         "",
-        "## 视线重点",
+        "## 主动标注与视线线索",
     ]
 
     any_focus = False
@@ -204,10 +204,10 @@ def _generate_local(
         any_focus = True
         lines.append(f"### 第 {page.get('page_number')} 页")
         for item in focus[:5]:
-            lines.append(f"- 关注约 {item.get('seconds')} 秒：{item.get('text')}")
+            lines.append(f"- 系统观察到停留约 {item.get('seconds')} 秒：{item.get('text')}")
 
     if not any_focus:
-        lines.append("- 暂未得到足够有效的视线样本。请确认已完成 GazeFollower 校准，并在全屏阅读时保持浏览器为前台窗口。")
+        lines.append("- 暂未得到足够有效的视线线索。请结合主动标注和原文复核。")
 
     lines.extend(["", "## 可能需要回看"])
     any_skim = False
