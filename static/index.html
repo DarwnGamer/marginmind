@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>澜页 / MarginMind</title>
+    <link rel="icon" href="/static/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main id="app" class="shell">
+      <section id="setupView" class="setup">
+        <div class="brand">
+          <div class="brand-title">
+            <img class="brand-mark" src="/static/icon.svg" alt="" aria-hidden="true" />
+            <div>
+              <p class="eyebrow">澜页 / MarginMind</p>
+              <h1>上传文档，带视线轨迹生成阅读笔记</h1>
+            </div>
+          </div>
+          <p class="privacy">本 MVP 不采集声音；摄像头画面只用于本地 GazeFollower 校准与采样。</p>
+        </div>
+
+        <form id="uploadForm" class="setup-grid">
+          <label class="field span-2">
+            <span>阅读文档</span>
+            <input id="docFile" type="file" accept=".pdf,.docx,.txt,.md" required />
+          </label>
+          <label class="field span-2">
+            <span>这次想要什么笔记</span>
+            <textarea id="noteGoal" rows="4" placeholder="例如：帮我找出核心概念、薄弱处和适合复习的提问；不要只总结，要指出我可能忽略的内容。"></textarea>
+          </label>
+          <label class="field">
+            <span>阅读目的</span>
+            <select id="readingPurpose">
+              <option value="复习巩固">复习巩固</option>
+              <option value="考试/面试准备">考试/面试准备</option>
+              <option value="论文/资料精读">论文/资料精读</option>
+              <option value="泛读建立框架">泛读建立框架</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>笔记偏好</span>
+            <select id="noteStyle">
+              <option value="结构化提纲">结构化提纲</option>
+              <option value="问答自测">问答自测</option>
+              <option value="概念关系">概念关系</option>
+              <option value="批判性反馈">批判性反馈</option>
+            </select>
+          </label>
+          <button class="primary span-2" type="submit">进入阅读</button>
+        </form>
+      </section>
+
+      <section id="readerView" class="reader hidden">
+        <header class="reader-bar">
+          <div>
+            <p class="eyebrow" id="docTitle">澜页</p>
+            <strong id="pageLabel">第 1 页</strong>
+          </div>
+          <div class="reader-actions">
+            <button id="prevPage" type="button" title="上一页">‹</button>
+            <button id="nextPage" type="button" title="下一页">›</button>
+            <button id="fullscreenBtn" type="button">全屏</button>
+            <button id="zoomOutBtn" type="button" title="缩小">-</button>
+            <button id="zoomResetBtn" type="button">100%</button>
+            <button id="zoomInBtn" type="button" title="放大">+</button>
+            <button id="startGazeBtn" type="button">开始视线追踪</button>
+            <button id="stopGazeBtn" type="button">停止追踪</button>
+            <button id="notesBtn" class="primary" type="button">生成笔记</button>
+          </div>
+          <div class="status" id="gazeStatus">GazeFollower 未启动</div>
+        </header>
+        <article id="pageSurface" class="page-surface" aria-live="polite"></article>
+      </section>
+
+      <section id="notesView" class="notes hidden">
+        <header class="notes-header">
+          <div>
+            <p class="eyebrow">生成结果</p>
+            <h2 id="notesProvider">阅读笔记</h2>
+          </div>
+          <button id="backToReader" type="button">回到阅读</button>
+        </header>
+        <pre id="notesOutput"></pre>
+      </section>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

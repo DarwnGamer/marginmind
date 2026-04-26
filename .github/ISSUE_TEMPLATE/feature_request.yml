@@ -1,0 +1,43 @@
+name: Feature request / 功能建议
+description: Suggest an improvement for the open MVP.
+title: "[Feature]: "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for shaping MarginMind / 澜页. Please keep examples privacy-safe and avoid uploading personal reading material.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / 想解决的问题
+      description: What user problem or research question does this address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal / 方案建议
+      description: What would you like to add or change?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area / 模块
+      options:
+        - Gaze tracking / 视线追踪
+        - Reader UI / 阅读界面
+        - Document parsing or OCR / 文档解析或 OCR
+        - AI provider or prompt / AI provider 或提示词
+        - Privacy or data management / 隐私或数据管理
+        - Documentation / 文档
+        - Community governance / 社区治理
+        - Other / 其他
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives / 其他思路
+      description: Any related tools, papers, libraries, or designs worth considering?

@@ -1,0 +1,1 @@
+"""MarginMind MVP package."""
