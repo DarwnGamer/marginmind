@@ -10,7 +10,7 @@
 
 澜页是一个面向阅读学习场景的本地 MVP：用户上传文档后进行固定翻页式阅读，系统用摄像头视线追踪记录用户在每页真正关注的位置，再把“已阅读页原文上下文 + 视线证据 + 用户笔记需求”交给 AI 生成阅读笔记。
 
-> 当前项目处于非商业原型阶段。默认本地保存数据，不采集声音，不上传摄像头画面。请不要提交 `.env`、`storage/`、日志或个人阅读材料。
+> 当前项目处于非商业原型阶段。默认本地保存数据，不采集声音，不上传摄像头画面；公开贡献请使用示例配置和脱敏材料。
 
 ## 为什么叫澜页 / MarginMind
 
@@ -71,7 +71,7 @@ marginmind/
 - `server*.log`：服务日志。
 - `.env`：本地 API key。
 
-这些文件都不应提交到 GitHub。
+这些是本地运行数据，不属于仓库内容。
 
 ## 安装与运行
 
@@ -128,11 +128,11 @@ OPENAI_MODEL=
 - 不上传摄像头画面。
 - 原始 gaze 样本、上传文档、AI prompt 和内部上下文默认保存在本机 `storage/`。
 - 摄像头硬件指示灯通常不能被通用软件单独关闭；停止追踪会释放摄像头。
-- 公开仓库前请确认未包含 `.env`、`storage/`、日志、个人文档和本地草稿。
+- 公开 issue、PR 或截图时请使用脱敏材料。
 
 更多说明见 [docs/PRIVACY.zh.md](docs/PRIVACY.zh.md)。
 
-发布到 GitHub 前请阅读 [docs/PUBLISH_CHECKLIST.zh.md](docs/PUBLISH_CHECKLIST.zh.md)，并运行：
+维护者可参考 [docs/PUBLISH_CHECKLIST.zh.md](docs/PUBLISH_CHECKLIST.zh.md)，并运行：
 
 ```powershell
 python scripts\pre_publish_check.py

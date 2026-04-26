@@ -10,7 +10,7 @@
 
 MarginMind is a local MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate which page regions were actually attended to. Notes are generated from the read pages, gaze evidence, explicit text selections, and the user's note request.
 
-> This project is currently a non-commercial prototype. Data is stored locally by default. It does not record audio or upload camera frames. Do not commit `.env`, `storage/`, logs, or private reading material.
+> This project is currently a non-commercial prototype. Data is stored locally by default. It does not record audio or upload camera frames; public contributions should use sample configuration and sanitized material.
 
 ## Why This Name
 
@@ -71,7 +71,7 @@ Runtime files are intentionally ignored:
 - `server*.log`: local server logs.
 - `.env`: local API keys.
 
-Do not upload these to GitHub.
+These are local runtime files, not repository contents.
 
 ## Installation
 
@@ -128,11 +128,11 @@ OPENAI_MODEL=
 - No camera frame upload.
 - Gaze samples, uploaded documents, AI prompts, and internal context are stored locally in `storage/`.
 - Hardware camera indicator lights usually cannot be disabled independently by generic app code; stopping gaze tracking releases the camera.
-- Before publishing, make sure `.env`, `storage/`, logs, private documents, and local drafts are not included.
+- Use sanitized material in public issues, pull requests, and screenshots.
 
 See [docs/PRIVACY.en.md](docs/PRIVACY.en.md).
 
-Before publishing to GitHub, read [docs/PUBLISH_CHECKLIST.en.md](docs/PUBLISH_CHECKLIST.en.md) and run:
+Maintainers can use [docs/PUBLISH_CHECKLIST.en.md](docs/PUBLISH_CHECKLIST.en.md) and run:
 
 ```powershell
 python scripts\pre_publish_check.py
