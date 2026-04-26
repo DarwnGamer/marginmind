@@ -1,18 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">MarginMind icon</title>
-  <desc id="desc">An abstract open book, margin mark, and gaze focus.</desc>
+  <desc id="desc">An open reading page with a bookmark and soft attention ripples.</desc>
   <defs>
-    <linearGradient id="bg" x1="20" y1="12" x2="110" y2="118" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0E3A34"/>
-      <stop offset="1" stop-color="#1D6B58"/>
+    <linearGradient id="bg" x1="16" y1="12" x2="112" y2="116" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8F1E3"/>
+      <stop offset="1" stop-color="#E7F0EA"/>
     </linearGradient>
   </defs>
-  <rect width="128" height="128" rx="30" fill="url(#bg)"/>
-  <path d="M32 36C43 30 55 31 64 40C73 31 85 30 96 36V95C85 90 73 90 64 99C55 90 43 90 32 95V36Z" fill="#FFF8EA"/>
-  <path d="M64 40V99" stroke="#D7C8AF" stroke-width="4" stroke-linecap="round"/>
-  <path d="M43 47V82" stroke="#C76A3A" stroke-width="5" stroke-linecap="round"/>
-  <path d="M52 52H57M52 64H58M52 76H57" stroke="#8A958F" stroke-width="4" stroke-linecap="round"/>
-  <path d="M70 67C77 58 90 58 97 67C90 76 77 76 70 67Z" fill="#E5F0EB" stroke="#167761" stroke-width="5" stroke-linejoin="round"/>
-  <circle cx="83.5" cy="67" r="6" fill="#167761"/>
-  <path d="M84 38C96 42 104 51 108 63M84 96C96 92 104 83 108 71" fill="none" stroke="#F0C36A" stroke-width="4" stroke-linecap="round"/>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M28 34C41 28 54 31 64 40C74 31 87 28 100 34V94C87 88 74 91 64 100C54 91 41 88 28 94V34Z" fill="#FFFDF8" stroke="#D8CBB8" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M64 40V100" stroke="#D8CBB8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M42 38V76L49 70L56 76V34C51 33 46 34 42 38Z" fill="#C56A3A"/>
+  <path d="M73 52C81 47 91 47 99 52M73 66C83 60 95 61 104 68M73 80C84 74 96 76 104 84" fill="none" stroke="#1E6B5A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M37 89C45 86 54 87 61 92" fill="none" stroke="#E6B85C" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="103" cy="84" r="4" fill="#E6B85C"/>
 </svg>
