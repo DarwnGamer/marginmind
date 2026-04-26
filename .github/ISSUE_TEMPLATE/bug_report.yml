@@ -1,5 +1,5 @@
 name: Bug report / 问题反馈
-description: Report a reproducible issue without sharing private documents or keys.
+description: Report a reproducible issue with privacy-safe examples.
 title: "[Bug]: "
 labels: ["bug", "needs-triage"]
 body:
@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Thanks for helping improve MarginMind / 澜页.
-        Please do not upload private documents, gaze logs, API keys, screenshots containing secrets, or raw `storage/` files.
+        Public reports work best with sample documents, sanitized logs, and redacted screenshots.
   - type: textarea
     id: summary
     attributes:
@@ -21,7 +21,7 @@ body:
       label: Steps To Reproduce / 复现步骤
       placeholder: |
         1. Start the server...
-        2. Upload a non-private sample file...
+        2. Upload a sample file...
         3. Click...
     validations:
       required: true
@@ -59,4 +59,4 @@ body:
     id: safe_logs
     attributes:
       label: Safe Logs / 可公开日志
-      description: Paste only sanitized logs. Remove keys, file contents, private text, and personal paths if needed.
+      description: Sanitized logs are easiest to review; redact credentials, file contents, private text, and personal paths as needed.

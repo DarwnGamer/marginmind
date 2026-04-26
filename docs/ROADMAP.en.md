@@ -13,7 +13,7 @@ This roadmap combines the original idea, MVP tradeoffs, and issues discovered du
 ## Document And Reading Support
 
 - OCR for scanned PDFs: the current MVP works best with text-based PDFs.
-- Image/formula/table markers: regions that cannot be extracted as text should be marked and passed to AI as non-text regions.
+- Image/formula/table markers: non-text regions should be marked and passed to AI with clear labels.
 - Better page mapping: AI text pages may differ from reading pages, so reading-page-to-source-text mapping should become more robust.
 - Section-based long reading: generate notes per section and merge them into a global note.
 

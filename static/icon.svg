@@ -1,11 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">MarginMind icon</title>
-  <desc id="desc">A reading page with a margin line and a gaze ripple.</desc>
-  <rect width="128" height="128" rx="24" fill="#F7F5EF"/>
-  <rect x="31" y="18" width="66" height="92" rx="7" fill="#FFFDF8" stroke="#D9D3C4" stroke-width="4"/>
-  <path d="M47 34H83M47 47H82M47 60H76M47 73H84M47 86H72" stroke="#64706A" stroke-width="5" stroke-linecap="round"/>
-  <path d="M38 25V102" stroke="#167761" stroke-width="5" stroke-linecap="round"/>
-  <path d="M66 43C76 33 92 33 102 43C92 53 76 53 66 43Z" fill="none" stroke="#167761" stroke-width="5" stroke-linejoin="round"/>
-  <circle cx="84" cy="43" r="6" fill="#B8562F"/>
-  <path d="M72 75C80 69 92 69 100 75M67 87C79 78 94 78 106 87" fill="none" stroke="#167761" stroke-width="4" stroke-linecap="round" opacity="0.72"/>
+  <desc id="desc">A page with a margin mark and a focused gaze symbol.</desc>
+  <rect width="128" height="128" rx="28" fill="#153E36"/>
+  <path d="M34 18H78L96 36V108C96 112.4 92.4 116 88 116H34C29.6 116 26 112.4 26 108V26C26 21.6 29.6 18 34 18Z" fill="#FFFDF8"/>
+  <path d="M78 18V34C78 36.2 79.8 38 82 38H96" fill="#E9DCC7"/>
+  <path d="M40 32V101" stroke="#C56A3A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M52 42H72M52 55H82M52 68H78" stroke="#64706A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M51 87C59.2 76.8 75.8 76.8 84 87C75.8 97.2 59.2 97.2 51 87Z" fill="#E6F1ED" stroke="#167761" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="67.5" cy="87" r="6.5" fill="#167761"/>
+  <path d="M89 67C96.8 70.4 102.9 76.6 106 84M88 107C97.1 103 103.8 96.2 107 88" fill="none" stroke="#E9DCC7" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="106" cy="84" r="4" fill="#C56A3A"/>
 </svg>

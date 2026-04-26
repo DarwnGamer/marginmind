@@ -1,14 +1,11 @@
 # GitHub 发布前清单
 
-## 必须确认
+## 仓库范围
 
-- 不提交 `.env`。
-- 不提交 `storage/`。
-- 不提交 `server*.log`。
-- 不提交个人阅读文档。
-- 不提交本地草稿、个人笔记或未整理的想法文档。
-- 不提交真实 DeepSeek/OpenAI API key。
-- 不在截图、README、issue、commit message 中展示 key。
+- 使用 `.env.example` 作为示例配置。
+- `storage/`、`server*.log`、上传文档、gaze 样本和调试输出保持为本地运行数据。
+- README、issue、commit message 和截图使用脱敏内容。
+- 本地草稿、个人笔记和未整理的想法文档保持在本地。
 
 ## 建议流程
 
@@ -19,8 +16,8 @@
    python scripts\pre_publish_check.py
    ```
 
-3. 检查 `git status --ignored`，确认敏感文件处于 ignored 状态。
-4. 首次公开前，建议在 API 平台轮换一次曾经在本地测试中使用过的 key。
+3. 检查 `git status --ignored`，核对本地运行数据处于 ignored 状态。
+4. 凭据轮换按服务商平台流程处理。
 
 ## 当前应发布的核心文件
 
@@ -39,7 +36,7 @@
 - `SECURITY.md`
 - `NOTICE.md`
 
-## 不应发布的本地文件
+## 本地运行数据
 
 - `.env`
 - `storage/`

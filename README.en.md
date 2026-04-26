@@ -1,4 +1,4 @@
-# MarginMind / 澜页
+# MarginMind / 澜页: Gaze-Aware AI Reading Notes
 
 > Statement: the following content was generated with Codex.
 
@@ -8,9 +8,11 @@
   <img src="static/icon.svg" width="96" height="96" alt="MarginMind icon">
 </p>
 
-MarginMind is a local MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate which page regions were actually attended to. Notes are generated from the read pages, gaze evidence, explicit text selections, and the user's note request.
+MarginMind is an open-source, local-first AI reading-notes MVP for study-oriented reading. A user uploads a document, reads it in a fixed paged reader, and the app uses webcam-based gaze tracking to estimate which page regions were actually attended to. Notes are generated from the read pages, gaze evidence, explicit text selections, and the user's note request.
 
-> This project is currently a non-commercial prototype. Data is stored locally by default. It does not record audio or upload camera frames; public contributions should use sample configuration and sanitized material.
+Keywords: AI notes, reading notes, study notes, gaze tracking, eye tracking, PDF reader, document notes, learning assistant.
+
+> This project is currently a non-commercial prototype. Data is stored locally by default; audio and camera frames are outside the upload flow. Public contributions use sample configuration and sanitized material.
 
 ## Why This Name
 
@@ -20,7 +22,7 @@ The Chinese name “澜页” suggests attention rippling across a page. It is n
 
 The original idea was a note-taking tool for learning: while reading, the webcam tracks gaze so the AI can understand where attention went and generate notes that reflect the actual reading process.
 
-The product should not make users passive. AI should provide suggestions, identify blind spots, and support reflection instead of replacing the user's thinking.
+The product is designed to keep readers active: AI provides suggestions, identifies blind spots, and supports reflection while leaving room for the user's own thinking.
 
 ## Community
 
@@ -32,16 +34,16 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes and [docs/ROADMAP.
 
 - Upload `.pdf`, `.docx`, `.txt`, and `.md` files.
 - Fast upload path: save file and metadata first; defer heavier parsing.
-- Fixed paged reader with no scrolling, so gaze coordinates do not drift across scroll positions.
+- Fixed paged reader with scroll-free pages, keeping gaze coordinates aligned with page positions.
 - PDF pages are rendered from the original PDF; text boxes are extracted from the same page for gaze matching.
 - PDF whitespace is cropped to enlarge the readable content; after zooming, the frontend resubmits real screen-space text boxes.
 - Local gaze tracking via `GazeFollower`.
 - When notes are generated, gaze tracking is stopped and the camera is released.
 - Page changes and zoom changes are treated as layout changes; nearby transient gaze samples are filtered to reduce latency errors.
-- Rapid continuous flipping does not count as reading. A page must remain stable, accumulate valid gaze, or contain an explicit selection to enter the AI submission scope.
+- Rapid continuous flipping remains a preview interaction; a page enters the AI submission scope after stable dwell time, valid gaze, or an explicit selection.
 - Only pages actually read in the session are submitted to AI.
 - AI input separates original text context from gaze evidence. Final notes must prioritize gaze focus and explicit selections.
-- AI providers can be configured through environment variables; local rules are used when no API key is configured.
+- AI providers can be configured through environment variables; local rules are used when API credentials are absent.
 
 ## Project Structure
 
@@ -61,7 +63,7 @@ marginmind/
 ├─ .github/                # Issue and PR templates
 ├─ environment.yml         # Conda environment
 ├─ requirements.txt        # Pip dependencies
-├─ .env.example            # Env template with no secrets
+├─ .env.example            # Sample environment template
 └─ README.md               # Chinese README
 ```
 
@@ -69,7 +71,7 @@ Runtime files are intentionally ignored:
 
 - `storage/`: uploaded files, sessions, gaze samples, internal AI context.
 - `server*.log`: local server logs.
-- `.env`: local API keys.
+- `.env`: local environment configuration.
 
 These are local runtime files, not repository contents.
 
@@ -87,9 +89,9 @@ Open:
 http://127.0.0.1:8000
 ```
 
-## API Keys
+## AI Provider Configuration
 
-Copy `.env.example` to `.env` and fill in your own key:
+Copy `.env.example` to `.env` and fill in local provider configuration:
 
 ```powershell
 Copy-Item .env.example .env
@@ -110,7 +112,7 @@ OPENAI_API_KEY=your_key_here
 OPENAI_MODEL=
 ```
 
-`.env` is ignored by default; keep real keys local.
+The copied `.env` file is loaded by the local service and remains a local configuration file.
 
 ## Usage
 
@@ -127,8 +129,8 @@ OPENAI_MODEL=
 - No audio recording.
 - No camera frame upload.
 - Gaze samples, uploaded documents, AI prompts, and internal context are stored locally in `storage/`.
-- Hardware camera indicator lights usually cannot be disabled independently by generic app code; stopping gaze tracking releases the camera.
-- Use sanitized material in public issues, pull requests, and screenshots.
+- Hardware camera indicator lights are usually managed by the operating system or device firmware; stopping gaze tracking releases the camera.
+- Public issues, pull requests, and screenshots use sanitized material by default.
 
 See [docs/PRIVACY.en.md](docs/PRIVACY.en.md).
 

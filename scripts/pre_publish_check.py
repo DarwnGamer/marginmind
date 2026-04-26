@@ -44,7 +44,7 @@ def main() -> int:
                 break
 
     if warnings:
-        print("Warnings:")
+        print("Local-only paths detected:")
         for warning in warnings:
             print(f"- {warning}")
         print()
@@ -55,8 +55,8 @@ def main() -> int:
             print(f"- {problem}")
         return 1
 
-    print("Pre-publish check passed: no obvious API keys found in publishable files.")
-    print("Reminder: use git so ignored local files stay out of the GitHub repository.")
+    print("Pre-publish check passed: publishable files contain no obvious provider credentials.")
+    print("Review git status as part of the release flow.")
     return 0
 
 

@@ -1,13 +1,13 @@
 # Privacy And Safety
 
-MarginMind is currently a local MVP. Because it touches webcam access, reading documents, gaze traces, and AI APIs, the default principle is: keep local data local and avoid collecting data that is not needed.
+MarginMind is currently a local MVP. Because it touches webcam access, reading documents, gaze traces, and AI APIs, the default principles are local-first storage, minimal collection, and transparent submission.
 
-## What It Does Not Do
+## Data Boundary
 
 - It does not record audio.
 - It does not upload camera frames.
-- It does not store raw camera frames in the project directory.
-- It should not publish `.env`, API keys, `storage/`, or logs to the repository.
+- Raw camera frames are not stored in the project directory.
+- The public repository uses sample environment configuration; runtime data stays local.
 
 ## What Is Stored Locally
 
@@ -22,7 +22,7 @@ Runtime data is stored under `storage/`:
 - AI prompt: `ai_prompt.md`.
 - Final notes: `notes.md`.
 
-These files may contain private reading material and behavioral data. Do not commit them to GitHub.
+These files may contain private reading material and behavioral data, so they are treated as local runtime data.
 
 ## What Is Sent To AI
 
@@ -34,21 +34,19 @@ When generating notes, the app submits:
 - Text explicitly selected by the user.
 - The user's note request.
 
-The app does not send camera frames or audio. Original text is context; the note should prioritize gaze focus and explicit selections.
+Submitted content excludes camera frames and audio. Original text is context; the note prioritizes gaze focus and explicit selections.
 
 ## Camera Indicator Light
 
-Many laptop webcam lights are hardware or OS-level privacy indicators. Generic Web/Python code usually cannot turn the light off while continuing to use the camera. The MVP handles this by stopping gaze tracking and releasing the camera when tracking is no longer needed.
+Many laptop webcam lights are hardware or OS-level privacy indicators. The MVP releases the camera by stopping gaze tracking; indicator state is managed by the operating system or device firmware.
 
-## Pre-Publish Checklist
+## Maintainer Release Review
 
-Before publishing to GitHub, verify that:
+Before a public release, maintainers can review:
 
-- `.env` is not committed.
-- `storage/` is not committed.
-- `server*.log` is not committed.
-- Real API keys are not present in README files, issues, commits, or screenshots.
-- Private reading documents are not committed.
-- Local drafts are not committed; public docs should use sanitized descriptions.
+- Repository content uses `.env.example` as sample configuration.
+- `storage/` and `server*.log` remain local runtime data.
+- README files, issues, commits, and screenshots use sanitized content.
+- Private reading documents, local drafts, and debug output remain local.
 
-If an API key was ever exposed publicly, revoke it immediately and create a new one.
+Credential rotation follows provider guidance.

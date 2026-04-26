@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for shaping MarginMind / 澜页. Please keep examples privacy-safe and avoid uploading personal reading material.
+        Thanks for shaping MarginMind / 澜页. Privacy-safe examples are easiest to discuss publicly.
   - type: textarea
     id: problem
     attributes:

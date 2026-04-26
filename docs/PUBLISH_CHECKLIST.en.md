@@ -1,14 +1,11 @@
 # GitHub Pre-Publish Checklist
 
-## Must Check
+## Repository Scope
 
-- Do not commit `.env`.
-- Do not commit `storage/`.
-- Do not commit `server*.log`.
-- Do not commit private reading documents.
-- Do not commit local drafts, personal notes, or unpolished idea documents.
-- Do not commit real DeepSeek/OpenAI API keys.
-- Do not expose keys in screenshots, README files, issues, or commit messages.
+- Use `.env.example` as sample configuration.
+- Keep `storage/`, `server*.log`, uploaded documents, gaze samples, and debug output as local runtime data.
+- Use sanitized content in README files, issues, commit messages, and screenshots.
+- Keep local drafts, personal notes, and unpolished idea documents local.
 
 ## Recommended Flow
 
@@ -19,8 +16,8 @@
    python scripts\pre_publish_check.py
    ```
 
-3. Check `git status --ignored` and verify sensitive files are ignored.
-4. Before the first public release, consider rotating any API key used during local testing.
+3. Check `git status --ignored` and confirm local runtime data is ignored.
+4. Credential rotation follows provider guidance.
 
 ## Files That Should Be Published
 
@@ -39,7 +36,7 @@
 - `SECURITY.md`
 - `NOTICE.md`
 
-## Local Files That Should Not Be Published
+## Local Runtime Data
 
 - `.env`
 - `storage/`
