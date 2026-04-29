@@ -1,6 +1,6 @@
 # MarginMind / 澜页: Gaze-Aware AI Reading Notes
 
-> Statement: the project initiator provided the product idea, requirements direction, and testing feedback; the current MVP implementation, debugging, and the following documentation were mainly completed with Codex.
+> Statement: the project initiator provided the product idea, requirements direction, concrete implementation plan, technical-selection principles, and testing feedback; the current MVP implementation, debugging, and the following documentation were mainly completed with Codex.
 
 [中文](README.md)
 
@@ -30,7 +30,7 @@ The product is designed to keep readers active: AI provides suggestions, identif
 
 MarginMind is an early MVP. Contributors interested in gaze tracking, document parsing, frontend/backend engineering, privacy and security, usability design, documentation, and open-source governance are welcome. Issues, docs, tests, reproducible bug reports, and small PRs are good starting points.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes, [docs/ROADMAP.en.md](docs/ROADMAP.en.md) for planned work, and [docs/IDEA_AND_FEEDBACK.en.md](docs/IDEA_AND_FEEDBACK.en.md) for the project direction and feedback summary.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution notes, [docs/ROADMAP.en.md](docs/ROADMAP.en.md) for planned work, [docs/IDEA_AND_FEEDBACK.en.md](docs/IDEA_AND_FEEDBACK.en.md) for the project direction and feedback summary, and [docs/AI_COLLABORATION.en.md](docs/AI_COLLABORATION.en.md) for the AI collaboration development record.
 
 ## Current Features
 

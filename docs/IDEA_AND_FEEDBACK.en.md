@@ -2,6 +2,12 @@
 
 This document separates two sources: the project initiator's original product direction, and selected external AI feedback that is useful for public discussion. It is a public open-source summary, not a raw copy of the private idea note.
 
+## Originality Boundary
+
+This repository should not claim that the whole direction is legally original or novel. Public work already exists around eye-tracking-enabled PDF readers, gaze-assisted note anchoring, real-time gaze-to-web-text mapping, and eye-tracking research for reading comprehension and learning. MarginMind therefore does not claim that "gaze tracking plus reading analysis" was first proposed here.
+
+What should be attributed clearly is the project-specific plan proposed by the project initiator: a study-reading note tool that combines reading-page content positioning, timestamped gaze traces, page-level source-text mapping, the user's note request, and later AI generation into a runnable MVP for open-source collaboration.
+
 ## Original Direction From The Project Initiator
 
 - Build for study-oriented reading, using webcam-based gaze tracking to record the reading process and help AI generate notes, revisit suggestions, or self-test questions that better reflect how the document was actually read.
@@ -19,6 +25,19 @@ This document separates two sources: the project initiator's original product di
 - Long-term gaze tracking may cause eye fatigue, but this should not be rushed into a "fatigue detector." A safer first step is sampling-duration visibility, rest reminders, opt-out controls, and camera-off modes; health-related wording must not be treated as medical judgment.
 - The long-term product form may become a tray app, floating window, or lighter entry point instead of a full tool flow every time.
 - The project should start as an MVP and then grow through GitHub open-source collaboration, with careful attention to dependency licenses.
+
+## Concrete Implementation Plan Proposed By The Project Initiator
+
+The original plan was not simply "let AI summarize a document." It first structures the reading process, then gives structured reading evidence to AI:
+
+- Identify or render the reading page to obtain text fragments that correspond to screen positions.
+- Preserve position, page number, and start/end information for each text fragment, so the app can later map reader pages to source-document fragments.
+- Collect timestamped gaze traces and overlap them with page text positions to infer which regions had longer dwell and which regions may have been skimmed quickly.
+- Save page-level reading-behavior summaries, such as page number, dwell regions, possible skimmed regions, dwell duration, and explicit user annotations.
+- During note generation, avoid sending the whole source document indiscriminately. Submit only the read-scope source text, behavior summary, and the user's note request.
+- Because reader pages and source pages may not match one-to-one, preserve page-level start/end content or fragment mapping before sending context to AI.
+
+The current MVP adopts the main idea while changing the engineering path: instead of generic screenshot OCR or a "special image" representation, it prioritizes rendered PDF pages plus PyMuPDF text-box extraction. The frontend submits real screen-space text boxes, and the backend overlaps them with GazeFollower coordinates and timestamps. This is more stable, easier to test, and easier for an open-source project to maintain.
 
 ## How The Current MVP Implements It
 
@@ -72,3 +91,12 @@ On whether to remove AI note generation: this does not have to be binary. Removi
 - OCR, formula, table, and image-region recognition.
 - Feedback loops after users review generated notes.
 - Local model options or stronger privacy-preserving modes.
+
+## Related Public Work
+
+These references help define the boundary between existing public directions and this project's concrete plan. They are not claimed to be identical to MarginMind:
+
+- [PeyeDF](https://arxiv.org/abs/1904.12152): an eye-tracking-enabled PDF reader that integrates PDF reading behavior and gaze data, with annotation, tagging, and collaboration support.
+- [GAVIN](https://arxiv.org/abs/2104.00870): uses gaze and machine learning to implicitly anchor voice notes to text fragments in digital documents.
+- [EyeLiveMetrics](https://arxiv.org/abs/2601.02044): a browser plugin that maps raw gaze coordinates to web text in real time and calculates word/paragraph-level reading metrics.
+- [Feedback beyond accuracy](https://pmc.ncbi.nlm.nih.gov/articles/PMC10084433/): discusses eye-tracking metrics as indirect feedback about reading comprehension and interest, while reminding that gaze and cognitive state are not a simple equivalence.

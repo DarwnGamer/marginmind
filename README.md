@@ -1,6 +1,6 @@
 # 澜页 / MarginMind：视线追踪驱动的 AI 阅读笔记工具
 
-> 声明：本项目由项目发起人提供产品想法、需求方向和测试反馈；当前 MVP 的代码实现、调试整理和以下文档主要由 Codex 完成。
+> 声明：本项目由项目发起人提供产品想法、需求方向、具体实现方案、技术选型原则和测试反馈；当前 MVP 的代码实现、调试整理和以下文档主要由 Codex 完成。
 
 [English](README.en.md)
 
@@ -30,7 +30,7 @@
 
 澜页目前处于早期 MVP 阶段，欢迎对视线追踪、文档解析、前后端工程、隐私安全、可用性设计和开源治理感兴趣的朋友共同建设。建议先从 issue、文档、测试、复现 bug 和小范围 PR 开始。
 
-贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，后续计划见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md)，项目方向与反馈摘要见 [docs/IDEA_AND_FEEDBACK.zh.md](docs/IDEA_AND_FEEDBACK.zh.md)。
+贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，后续计划见 [docs/ROADMAP.zh.md](docs/ROADMAP.zh.md)，项目方向与反馈摘要见 [docs/IDEA_AND_FEEDBACK.zh.md](docs/IDEA_AND_FEEDBACK.zh.md)，AI 协作开发记录见 [docs/AI_COLLABORATION.zh.md](docs/AI_COLLABORATION.zh.md)。
 
 ## 当前功能
 
